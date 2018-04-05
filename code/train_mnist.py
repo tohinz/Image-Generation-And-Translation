@@ -467,8 +467,8 @@ for it in range(global_step + 1, global_step + max_iter + 1):
         X_labeled, Y_labeled = sample_mnist(mb_size, labeled=True)
         X_unlabeled, Y_unlabeled = sample_mnist(0, labeled=False)
 
-        _acc, _sup_loss, _cross_ent_loss, _adv_loss_, _rec_loss = sess.run(
-            [supervised_accuracy, G_loss_sup, g_cross_entropy_loss, adv_loss, reconstruction_loss],
+        _acc, _sup_loss, _cross_ent_loss, _rec_loss = sess.run(
+            [supervised_accuracy, G_loss_sup, g_cross_entropy_loss, reconstruction_loss],
             feed_dict={X_lab: X_labeled, Y_lab: Y_labeled, X_unl: X_unlabeled, Y_unl: Y_unlabeled,
                        z: z_mb, c: c_mb, phase: 0, adv_loss: _adv_loss, num_lab: lab_samples})
 
@@ -488,9 +488,9 @@ for it in range(global_step + 1, global_step + max_iter + 1):
         # log current generator and encoder accuracies and other information
         with open(log_dir + "/info.txt", "ab") as logfile:
             logfile.write(
-                "time: {}, iter: {}, supervised accuracy: {}, G sup loss: {}, G cross entropy loss: {}, adversarial loss: {}, "
+                "time: {}, iter: {}, supervised accuracy: {}, G sup loss: {}, G cross entropy loss: {}, "
                 "reconstruction loss: {}\n".
-                format(time.ctime(), it, _acc, _sup_loss, _cross_ent_loss, _adv_loss_, _rec_loss))
+                format(time.ctime(), it, _acc, _sup_loss, _cross_ent_loss, _rec_loss))
             logfile.write("\t generator accuracy: {} \n".format(generator_accuracy_current))
             logfile.write("\t encoder accuracy: {} \n".format(encoder_accuracy))
 
