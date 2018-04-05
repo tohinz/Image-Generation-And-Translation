@@ -49,12 +49,11 @@ args = parser.parse_args()
 with open(log_dir + "/hp_file.csv", "wb") as f:
     for arg in args.__dict__:
         f.write(arg + "," + str(args.__dict__[arg]) + "\n")
-copyfile(sys.argv[0], log_dir + "/" + sys.argv[0])
+executed_file = str.split(sys.argv[0], "/")[-1]
+copyfile(sys.argv[0], log_dir + "/" + executed_file)
 
 
 from random import Random
-# seed = 42
-# py_rng = Random(seed)
 py_rng = Random()
 
 # load MNIST data set
@@ -112,7 +111,6 @@ X_lab = tf.placeholder(tf.float32, shape=[None, img_height, img_width, channels]
 Y_lab = tf.placeholder(tf.float32, shape=[None, 10], name="Y_lab")
 X_unl = tf.placeholder(tf.float32, shape=[None, img_height, img_width, channels], name="Y_unl")
 Y_unl = tf.placeholder(tf.float32, shape=[None, 10], name="Y_unl")
-x_gen = tf.placeholder(tf.float32, shape=[None, img_height, img_width, channels], name="x_gen")
 z = tf.placeholder(tf.float32, shape=[None, z_dim], name="z")
 c = tf.placeholder(tf.float32, shape=[None, c_dim], name="c")
 phase = tf.placeholder(tf.bool, name='phase')

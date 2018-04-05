@@ -192,7 +192,7 @@ def normalize_image(img):
 
 def predict(num_samples=500, img_path = "mnist_test_imgs"):
     num_samples = num_samples
-    model = keras.models.load_model("weights.37-0.9943.hdf5")
+    model = keras.models.load_model("code/weights.37-0.9943.hdf5")
     img_generator = image.ImageDataGenerator(preprocessing_function=normalize_image)
     validation_generator = img_generator.flow_from_directory(directory=img_path, target_size=(28,28),
                                                              batch_size=500, shuffle=False, color_mode="grayscale")
