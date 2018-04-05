@@ -18,5 +18,5 @@ To evaluate the results:
 * run `python evaluate_model.py --model_dir dir-where-model-weights-are-stored` with one of the following flags:
     * `--generate`: generates samples varying the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples"
     * `--translate`: translates images from the test set according to the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples". The first column of each image depicts the original image, the following columns depict the translations according to the variables in c. The categorical translation translates an image into each of the 10 digits, while the continuous translation takes an image and sets the encoding of one continuous variable to {-1, 0, 1}.
-    * `--interpolate`: 
+    * `--interpolate`: interpolates between images. When prompted type the start digit (digit which should be in the start image) and end digit (digit which should be in the end image). Results are stored in "model_dir/samples"
     * `--reconstruct`: 
