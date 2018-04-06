@@ -38,7 +38,7 @@ parser.add_argument("--lab_sample_red", help="Reduction in probability of sampli
 parser.add_argument("--num_samples", help="Number of labeled samples per class", type=int, default=5)
 parser.add_argument("--sup_loss_reduction", help="Reduction of impact of supervised loss", type=int, default=10)
 parser.add_argument("--weight_recon_loss", help="Weighting of the reconstruction loss", type=int, default=1)
-parser.add_argument("--max_iter", help="Maximum number of training iterations", type=int, default=50000)
+parser.add_argument("--max_iter", help="Maximum number of training iterations", type=int, default=40000)
 parser.add_argument("--recon_loss_G", help="Number of iters recon loss applies only to G", type=int, default=0)
 parser.add_argument("--gen_img_path", help="Temporary folder where imgs are generated.", type=str, default="mnist_test_imgs")
 parser.add_argument("--max_adv_loss", help="Maximum impact of additional losses", type=float, default=1)
@@ -459,7 +459,7 @@ for it in range(global_step + 1, global_step + max_iter + 1):
                    z: z_mb, c: c_mb, phase: 1, adv_loss: _adv_loss, num_lab: lab_samples})
 
     # check and log generator and encoder accuracy
-    if it % 1000 == 0:
+    if it % 5000 == 0:
         lab_samples = mb_size
 
         X_labeled, Y_labeled = sample_mnist(mb_size, labeled=True)
@@ -493,7 +493,7 @@ for it in range(global_step + 1, global_step + max_iter + 1):
             logfile.write("\t encoder accuracy: {} \n".format(encoder_accuracy))
 
     # run summary ops for logging in Tensorboard
-    if it % 2500 == 0:
+    if it % 5000 == 0:
         lab_samples = 0
         X_labeled, Y_labeled = sample_mnist(0, labeled=True)
         X_unlabeled, Y_unlabeled = sample_mnist(mb_size, labeled=False)

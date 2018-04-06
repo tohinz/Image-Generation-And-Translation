@@ -540,20 +540,20 @@ def reconstruct():
 
     imgs_all = np.concatenate([imgs, imgs_reconstructed], axis=0)
 
-    fig = plt.figure(figsize=(0.28 * 2, 0.28 * 10))
-    gs1 = gridspec.GridSpec(10, 2, wspace=0.0, hspace=0.0)
-    for idx1 in range(10):
+    fig = plt.figure(figsize=(0.28 * 10, 0.28 * 2))
+    gs1 = gridspec.GridSpec(2, 10, wspace=0.0, hspace=0.0)
+    for idx1 in range(20):
         img = imgs_all[idx1]
-        ax = plt.subplot(gs1[idx1*2])
+        ax = plt.subplot(gs1[idx1])
         ax.imshow(np.reshape(img, [28, 28]), cmap='Greys_r')
         ax.set_xticks([])
         ax.set_yticks([])
-    for idx1 in range(10):
-        img = imgs_all[idx1+10]
-        ax = plt.subplot(gs1[idx1*2+1])
-        ax.imshow(np.reshape(img, [28, 28]), cmap='Greys_r')
-        ax.set_xticks([])
-        ax.set_yticks([])
+    # for idx1 in range(10):
+    #     img = imgs_all[idx1+10]
+    #     ax = plt.subplot(gs1[idx1*2+1])
+    #     ax.imshow(np.reshape(img, [28, 28]), cmap='Greys_r')
+    #     ax.set_xticks([])
+    #     ax.set_yticks([])
     fig.tight_layout(pad=0)
     fig.savefig(args.model_dir + "/samples/reconstructions.png")
     plt.close('all')
