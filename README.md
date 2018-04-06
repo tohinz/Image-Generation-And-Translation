@@ -18,7 +18,7 @@ To evaluate the results:
 * run `python code/evaluate_model.py --model_dir dir-where-model-weights-are-stored` with one of the following flags:
     * `--generate`: generates samples varying the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples"
 
-| Generated cat | Generated cont 1 | Generated cont 2 |
+| Generated categorical | Generated continuous 1 | Generated continuous 2 |
 |---|---|---|
 | ![](./figures/mnist/generated_imgs_categorical.png) | ![](./figures/mnist/generated_imgs_cont_0.png) | ![](./figures/mnist/generated_imgs_cont_1.png) |
 
