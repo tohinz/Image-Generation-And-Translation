@@ -27,9 +27,12 @@ To evaluate the results:
     |---|---|
     | ![](./figures/mnist/categorical_translations.png) | ![](./figures/mnist/continuous_translations.png) |
     * `--interpolate`: interpolates between images. When prompted type the start digit (digit which should be in the start image) and end digit (digit which should be in the end image). Results are stored in "model_dir/samples"
-    ![](./figures/mnist/mnist_class_interpolation_2_7.png)
-    ![](./figures/mnist/mnist_class_interpolation_4_9.png)
-    ![](./figures/mnist/mnist_class_interpolation_5_8.png)
+
+    | Interpolation 2 to 7 | Interpolation 4 to 9 | Interpolation 5 to 8 |
+    |---|---|---|
+    | ![](./figures/mnist/mnist_class_interpolation_2_7.png) | ![](./figures/mnist/mnist_class_interpolation_4_9.png) | ![](./figures/mnist/mnist_class_interpolation_5_8.png) |
     * `--reconstruct`: samples images from the test set, encodes them, and gives the encoding to the generator for reconstructions. Results are stored in "model_dir/samples"
-    ![](./figures/mnist/reconstructions_1.png)
-    ![](./figures/mnist/reconstructions_2.png)
+
+    | Reconstruction Example 1 | Reconstruction Example 2 |
+    |---|---|
+    | ![](./figures/mnist/reconstructions_1.png) | ![](./figures/mnist/reconstructions_2.png) |
