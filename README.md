@@ -21,7 +21,6 @@ To evaluate the results:
 | Generated categorical | Generated continuous 1 | Generated continuous 2 |
 |---|---|---|
 | ![](./figures/mnist/generated_imgs_categorical.png) | ![](./figures/mnist/generated_imgs_cont_0.png) | ![](./figures/mnist/generated_imgs_cont_1.png) |
-
     * `--translate`: translates images from the test set according to the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples". The first column of each image depicts the original image, the following columns depict the translations according to the variables in c. The categorical translation translates an image into each of the 10 digits, while the continuous translation takes an image and sets the encoding of one continuous variable to {-1, 0, 1}
     ![](./figures/mnist/categorical_translations.png)
     ![](./figures/mnist/continuous_translations.png)
