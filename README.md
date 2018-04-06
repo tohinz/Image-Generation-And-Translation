@@ -18,8 +18,8 @@ To evaluate the results:
 * run `python code/evaluate_model.py --model_dir dir-where-model-weights-are-stored` with one of the following flags:
     * `--generate`: generates samples varying the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples"
 
-    Generated cat          |  Generated cont 1          | Generated cont 2
-:-------------------------:|:--------------------------:|:-----------------
+    Generated cat                                    |  Generated cont 1                                | Generated cont 2
+:---------------------------------------------------:|:------------------------------------------------:|:-----------------
 ![](./figures/mnist/generated_imgs_categorical.png)  |  ![](./figures/mnist/generated_imgs_cont_0.png)  | ![](./figures/mnist/generated_imgs_cont_1.png)
     * `--translate`: translates images from the test set according to the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples". The first column of each image depicts the original image, the following columns depict the translations according to the variables in c. The categorical translation translates an image into each of the 10 digits, while the continuous translation takes an image and sets the encoding of one continuous variable to {-1, 0, 1}
     ![](./figures/mnist/categorical_translations.png)
