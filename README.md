@@ -15,8 +15,18 @@ Results are stored in code/log_dir/mnist_sem_sup
 * for each experiment run log_dir also contains a file info.txt detailing the generator and encoder accuracy after X iterations, as well as other information about the training progress
 
 To evaluate the results:
-* run `python evaluate_model.py --model_dir dir-where-model-weights-are-stored` with one of the following flags:
+* run `python code/evaluate_model.py --model_dir dir-where-model-weights-are-stored` with one of the following flags:
     * `--generate`: generates samples varying the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples"
-    * `--translate`: translates images from the test set according to the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples". The first column of each image depicts the original image, the following columns depict the translations according to the variables in c. The categorical translation translates an image into each of the 10 digits, while the continuous translation takes an image and sets the encoding of one continuous variable to {-1, 0, 1}.
+    ![](./figures/mnist/generated_imgs_categorical.png)
+    ![](./figures/mnist/generated_imgs_cont_0.png)
+    ![](./figures/mnist/generated_imgs_cont_1.png)
+    * `--translate`: translates images from the test set according to the categorical and continuous parts of the disentangled part of the representation and stores the result in "model_dir/samples". The first column of each image depicts the original image, the following columns depict the translations according to the variables in c. The categorical translation translates an image into each of the 10 digits, while the continuous translation takes an image and sets the encoding of one continuous variable to {-1, 0, 1}
+    ![](./figures/mnist/categorical_translations.png)
+    ![](./figures/mnist/continuous_translations.png)
     * `--interpolate`: interpolates between images. When prompted type the start digit (digit which should be in the start image) and end digit (digit which should be in the end image). Results are stored in "model_dir/samples"
+    ![](./figures/mnist/mnist_class_interpolation_2_7.png)
+    ![](./figures/mnist/mnist_class_interpolation_4_9.png)
+    ![](./figures/mnist/mnist_class_interpolation_5_8.png)
     * `--reconstruct`: samples images from the test set, encodes them, and gives the encoding to the generator for reconstructions. Results are stored in "model_dir/samples"
+    ![](./figures/mnist/reconstructions_1.png)
+    ![](./figures/mnist/reconstructions_2.png)
